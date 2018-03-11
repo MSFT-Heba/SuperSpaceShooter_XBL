@@ -28,6 +28,17 @@ public class Ship : MonoBehaviour {
         EnvironmentMngr = GameObject.FindObjectOfType<EnvrionmentManager>();
     }
 
+    private void OnEnable()
+    {
+        CanShoot = false;
+        Invoke("EnableShooting", 1f);
+    }
+
+    private void OnDisable()
+    {
+        CanShoot = false;
+    }
+
     /// <summary>
     /// Creates an instance of the laser game object and disables firing based on the FireDelay
     /// </summary>

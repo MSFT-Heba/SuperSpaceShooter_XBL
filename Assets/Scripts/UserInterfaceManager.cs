@@ -24,7 +24,7 @@ public class UserInterfaceManager : MonoBehaviour
         {
             Instance = this;
             HealthIcons = GameScreen.transform.Find("Health").GetComponentsInChildren<Transform>();
-
+            MainScreen.transform.Find("PlayButton").GetComponent<Button>().Select();
         }
         else if (Instance != this)
         {
