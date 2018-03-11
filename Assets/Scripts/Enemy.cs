@@ -92,7 +92,6 @@ public class Enemy : Ship {
     {
         base.CalculateHit(amount);
 
-        Debug.Log(gameObject.name + "'s remaining points: " + CurrentHitPoints);
         if (CurrentHitPoints <= 0)
         {
             GameManager.Instance.IncrementScore();

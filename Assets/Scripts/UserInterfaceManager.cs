@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xbox.Services.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,8 +17,9 @@ public class UserInterfaceManager : MonoBehaviour
     public GameObject MainScreen;
     public GameObject GameScreen;
     public Transform[] HealthIcons;
-
-
+    public IntegerStat stat;
+    
+    
     private void Awake()
     {
         if (Instance == null)
@@ -34,6 +36,11 @@ public class UserInterfaceManager : MonoBehaviour
     public void AdjustScore(int amount)
     {
         ScoreText.text = "Score: " + amount;
+        if (SignInManager.Instance.GetPlayer(1).IsSignedIn)
+        {
+            stat.Increment();
+            Debug.Log(stat.Value);
+        }
     }
 
 
@@ -78,6 +85,8 @@ public class UserInterfaceManager : MonoBehaviour
     /// </summary>
     public void EndGame()
     {
+        StatsManagerComponent.Instance.RequestFlushToService(SignInManager.Instance.GetPlayer(1), true);
+
         GameManager.Instance.gameObject.SetActive(false);
         MainScreen.SetActive(true);
         GameScreen.SetActive(false);
