@@ -521,13 +521,13 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: SuperSpaceShooter_2D_XBL
+  metroPackageName: 14831SADLogic.AnotherCreatorsTestGame
   metroPackageVersion: 
-  metroCertificatePath: 
+  metroCertificatePath: 14831SADLogic.AnotherCreatorsTestGame_StoreKey.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: 8D6FED95-FA54-455C-A862-28CF72C13454
+  metroCertificateIssuer: 8D6FED95-FA54-455C-A862-28CF72C13454
+  metroCertificateNotAfter: 807ed2bb02d6d401
   metroApplicationDescription: SuperSpaceShooter_2D_XBL
   wsaImages: {}
   metroTileShortName: 
@@ -542,7 +542,9 @@ PlayerSettings:
   metroSplashScreenBackgroundColor: {r: 0.12941177, g: 0.17254902, b: 0.21568628,
     a: 1}
   metroSplashScreenUseBackgroundColor: 0
-  platformCapabilities: {}
+  platformCapabilities:
+    WindowsStoreApps:
+      InternetClient: True
   metroFTAName: 
   metroFTAFileTypes: []
   metroProtocolName: 

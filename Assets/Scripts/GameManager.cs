@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         TogglePlayer(true);
-        Player.GetComponent<Player>().HitPoints = 3;
+        Player.GetComponent<Player>().CurrentHitPoints = 3;
 
         _score = 0;
         SpawnEnemy();
@@ -54,10 +54,8 @@ public class GameManager : MonoBehaviour
         enemyGameObject.SetActive(true);
 
         enemyGameObject.GetComponent<Enemy>().SetupEnemy(SpawnPoints[spawnLocation].transform.position);
-        Invoke("SpawnEnemy", Random.Range(3, 10));
+        Invoke("SpawnEnemy", Random.Range(1, 5));
     }
-
-
 
     /// <summary>
     /// Toggles the player game object.
@@ -87,11 +85,7 @@ public class GameManager : MonoBehaviour
         TogglePlayer(false);
 
         CancelInvoke();
-        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
-        {
-            Destroy(enemy);
-        }
-
+        ObjectPoolManager.Instance.ResetObjects();
         UserInterface.EndGame(); //Adjust the UI
     }
 

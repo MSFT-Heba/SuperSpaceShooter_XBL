@@ -36,7 +36,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4861856897385858}
   - component: {fileID: 114809782267596748}
-  - component: {fileID: 60355989576036668}
+  - component: {fileID: 50264143489309992}
+  - component: {fileID: 60761628729051590}
   m_Layer: 0
   m_Name: Enemy_Small
   m_TagString: Enemy
@@ -101,7 +102,27 @@ Transform:
   m_Father: {fileID: 4861856897385858}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60355989576036668
+--- !u!50 &50264143489309992
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1509649321109080}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!60 &60761628729051590
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -125,24 +146,28 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.41497388, y: 0.5947903}
-      - {x: 0.1622387, y: 0.47378576}
-      - {x: -0.14062656, y: 0.47487226}
-      - {x: -0.4044359, y: 0.58242226}
-      - {x: -0.64348775, y: 0.22602223}
-      - {x: -0.3436828, y: -0.599089}
-      - {x: -0.13680679, y: -0.5121784}
-      - {x: -0.20335297, y: -0.27328613}
-      - {x: -0.082414135, y: -0.25642592}
-      - {x: -0.07283238, y: -0.4384483}
-      - {x: 0.058265187, y: -0.44601813}
-      - {x: 0.08839677, y: -0.2344234}
-      - {x: 0.20807451, y: -0.22513372}
-      - {x: 0.13663347, y: -0.5093432}
-      - {x: 0.36423767, y: -0.59203655}
-      - {x: 0.43155986, y: -0.3891609}
-      - {x: 0.54384726, y: -0.120648265}
-      - {x: 0.6434877, y: 0.23090446}
+    - - {x: 0.26322043, y: 0.33695078}
+      - {x: 0.10048914, y: 0.23907089}
+      - {x: 0.08972204, y: 0.20557404}
+      - {x: 0.012095571, y: 0.23092222}
+      - {x: -0.09054589, y: 0.21240902}
+      - {x: -0.09114349, y: 0.23298025}
+      - {x: -0.2492739, y: 0.3400736}
+      - {x: -0.4012921, y: 0.33567238}
+      - {x: -0.22793937, y: -0.2559209}
+      - {x: -0.14558268, y: -0.2551198}
+      - {x: -0.1516391, y: -0.29509783}
+      - {x: -0.10221839, y: -0.340127}
+      - {x: -0.058954358, y: -0.3386011}
+      - {x: -0.050931692, y: -0.43167973}
+      - {x: 0.04812455, y: -0.43916512}
+      - {x: 0.044567585, y: -0.33623838}
+      - {x: 0.09750891, y: -0.34060383}
+      - {x: 0.1439383, y: -0.29092646}
+      - {x: 0.14652431, y: -0.26119566}
+      - {x: 0.22958207, y: -0.26055765}
+      - {x: 0.33122873, y: 0.11058855}
+      - {x: 0.3846326, y: 0.32567644}
 --- !u!114 &114809782267596748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -154,9 +179,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edf8c8b7e75c6eb48bbdecbd071a7d71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitPoints: 3
+  BaseHitPoints: 1
+  CurrentHitPoints: 1
   FireDelay: 2
-  Speed: 0.75
+  Speed: 0.035
   LaserDistanceForward: -0.5
   LaserDistanceRight: 0
   LaserRotation: {x: 0, y: 0, z: 0}

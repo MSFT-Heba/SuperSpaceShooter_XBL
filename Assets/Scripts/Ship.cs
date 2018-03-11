@@ -5,9 +5,10 @@ using Assets.Scripts;
 public class Ship : MonoBehaviour {
 
     [Header("General Properties")]
-    public int HitPoints = 3;
+    public int BaseHitPoints = 3;
+    public int CurrentHitPoints = 3;
     public float FireDelay;
-    [Range(.75f,15)]
+    [Range(.01f,15)]
     public float Speed;
 
 
@@ -57,6 +58,6 @@ public class Ship : MonoBehaviour {
     /// <param name="amount">Amount of damage to apply</param>
     public virtual void CalculateHit(int amount)
     {
-        HitPoints -= amount;
+        CurrentHitPoints -= amount;
     }
 }

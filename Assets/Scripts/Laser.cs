@@ -22,17 +22,20 @@ public class Laser : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Test OnCollisionEnter2D");
+
         if (!EnemyWeapon && collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.GetComponent<Enemy>().CalculateHit(Damage);
+            gameObject.SetActive(false);
         }
 
         else if (EnemyWeapon && collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<Player>().CalculateHit(Damage);
+            gameObject.SetActive(false);
         }
 
-        gameObject.SetActive(false);
     }
 
 }

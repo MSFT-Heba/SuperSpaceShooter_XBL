@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 4070288402145950}
   - component: {fileID: 114392043885764218}
   - component: {fileID: 60219493684615760}
+  - component: {fileID: 50610647303060898}
   m_Layer: 0
   m_Name: Enemy_Large
   m_TagString: Enemy
@@ -101,6 +102,26 @@ Transform:
   m_Father: {fileID: 4389662064163786}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50610647303060898
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1951285542617024}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!60 &60219493684615760
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -154,9 +175,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edf8c8b7e75c6eb48bbdecbd071a7d71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitPoints: 3
+  BaseHitPoints: 2
+  CurrentHitPoints: 2
   FireDelay: 2
-  Speed: 0.75
+  Speed: 0.025
   LaserDistanceForward: -0.5
   LaserDistanceRight: 0
   LaserRotation: {x: 0, y: 0, z: 0}

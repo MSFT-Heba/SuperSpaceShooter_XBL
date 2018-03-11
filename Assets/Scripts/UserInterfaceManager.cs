@@ -10,12 +10,27 @@ using UnityEngine.UI;
 /// </summary>
 public class UserInterfaceManager : MonoBehaviour
 {
+    public static UserInterfaceManager Instance;
+    
     public Text ScoreText;
     public GameObject MainScreen;
     public GameObject GameScreen;
-    public GameObject[] HealthIcons;
+    public Transform[] HealthIcons;
 
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            HealthIcons = GameScreen.transform.Find("Health").GetComponentsInChildren<Transform>();
+
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
     public void AdjustScore(int amount)
     {
         ScoreText.text = "Score: " + amount;
@@ -27,14 +42,16 @@ public class UserInterfaceManager : MonoBehaviour
     /// </summary>
     public void DecreasePlayerHealth()
     {
-        foreach (Transform heart in GameScreen.transform.Find("Health").transform)
+        for (int i = 1; i < HealthIcons.Length; i++)
         {
-            if (heart.gameObject.activeSelf)
+            if (HealthIcons[i].gameObject.activeSelf)
             {
-                heart.gameObject.SetActive(false);
+                Debug.Log("Player health decreased");
+                HealthIcons[i].gameObject.SetActive(false);
                 break;
             }
         }
+
     }
 
     /// <summary>
@@ -45,9 +62,9 @@ public class UserInterfaceManager : MonoBehaviour
         GameManager.Instance.StartGame();
         ScoreText.text = "Score: 0";
 
-        foreach (Transform health in GameScreen.transform.Find("Health").transform)
+        for (int i = 0; i < HealthIcons.Length; i++)
         {
-            health.gameObject.SetActive(true);
+            HealthIcons[i].gameObject.SetActive(true);
         }
 
         MainScreen.SetActive(false);

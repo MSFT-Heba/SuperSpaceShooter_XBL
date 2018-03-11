@@ -8,7 +8,6 @@ public class Player : Ship {
 
 
     public float BackgroundMultiplyer = 0.008f;
-    public UserInterfaceManager UserInterface;
 
     // Update is called once per frame
     void Update () {
@@ -58,10 +57,10 @@ public class Player : Ship {
     public override void CalculateHit(int amount)
     {
         //Remove heart from UI
-        UserInterface.DecreasePlayerHealth();
+        UserInterfaceManager.Instance.DecreasePlayerHealth();
         base.CalculateHit(amount);
 
-        if (HitPoints <= 0)
+        if (CurrentHitPoints <= 0)
         {
             GameManager.Instance.EndGame(); 
         }

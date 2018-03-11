@@ -37,3 +37,7 @@ sysinfo.txt
 #Xbox Live files
 *.pfx
 XboxServices.config
+
+#Xbox Live files
+**/*.pfx
+**/XboxServices.config

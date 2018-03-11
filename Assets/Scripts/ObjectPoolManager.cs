@@ -62,7 +62,6 @@ namespace Assets.Scripts
                 if (child.name.Contains("Large"))
                 {
                     EnemyLarge.Add(child.gameObject);
-
                 }
                 else
                 {
@@ -95,6 +94,21 @@ namespace Assets.Scripts
                 PlayerLaserHitIcons.Add(child.gameObject);
                 child.gameObject.SetActive(false);
             }
+
+            GameObject.FindGameObjectWithTag("Player").SetActive(false);
+        }
+
+        /// <summary>
+        /// Reset all objects by making any active ones, inactive
+        /// </summary>
+        public void ResetObjects()
+        {
+            EnemySmall.FindAll(x => x.gameObject.activeSelf).ForEach(x => x.gameObject.SetActive(false));
+            EnemyLarge.FindAll(x => x.gameObject.activeSelf).ForEach(x => x.gameObject.SetActive(false));
+            EnemyLasers.FindAll(x => x.gameObject.activeSelf).ForEach(x => x.gameObject.SetActive(false));
+            PlayerLasers.FindAll(x => x.gameObject.activeSelf).ForEach(x => x.gameObject.SetActive(false));
+            EnemyLaserHitIcons.FindAll(x => x.gameObject.activeSelf).ForEach(x => x.gameObject.SetActive(false));
+            PlayerLaserHitIcons.FindAll(x => x.gameObject.activeSelf).ForEach(x => x.gameObject.SetActive(false));
         }
 
         /// <summary>

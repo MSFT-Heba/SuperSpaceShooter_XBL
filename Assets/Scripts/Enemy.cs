@@ -36,7 +36,7 @@ public class Enemy : Ship {
         }
 
         //reset hit points
-        HitPoints = 2;
+        CurrentHitPoints = BaseHitPoints;
 
         transform.position = spawnPosition;
 
@@ -48,8 +48,7 @@ public class Enemy : Ship {
         if (isMoving)
         {
             Vector3 direction = transform.position - _endPos;
-            transform.position = transform.position - direction.normalized * .02f;
-
+            transform.position = transform.position - direction.normalized * Speed;
         }
 
         if (CanShoot)
@@ -71,11 +70,9 @@ public class Enemy : Ship {
             if (Vector3.Distance(transform.position, _player.transform.position) > 3.5)
             {
                 _endPos = _player.transform.position + Vector3.up * _distanceToPlayer + ((Vector3)Random.insideUnitCircle * 1);
-                Debug.Log("still navigating to player");
             }
             else
             {
-                Debug.Log("leaving the game");
                 navigateToPlayer = false;
                 _endPos = new Vector3(0f, -10f, 0f) + ((Vector3)Random.insideUnitCircle * 3);
             }
@@ -83,11 +80,20 @@ public class Enemy : Ship {
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("border"))
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
     public override void CalculateHit(int amount)
     {
         base.CalculateHit(amount);
 
-        if (HitPoints <= 0)
+        Debug.Log(gameObject.name + "'s remaining points: " + CurrentHitPoints);
+        if (CurrentHitPoints <= 0)
         {
             GameManager.Instance.IncrementScore();
             isMoving = false;
