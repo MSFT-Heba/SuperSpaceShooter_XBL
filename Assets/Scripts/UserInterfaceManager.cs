@@ -85,7 +85,10 @@ public class UserInterfaceManager : MonoBehaviour
     /// </summary>
     public void EndGame()
     {
-        StatsManagerComponent.Instance.RequestFlushToService(SignInManager.Instance.GetPlayer(1), true);
+        if (SignInManager.Instance.GetPlayer(1).IsSignedIn)
+        {
+            StatsManagerComponent.Instance.RequestFlushToService(SignInManager.Instance.GetPlayer(1), true);
+        }
 
         GameManager.Instance.gameObject.SetActive(false);
         MainScreen.SetActive(true);
